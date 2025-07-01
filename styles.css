@@ -248,7 +248,24 @@ p {
 .hero-image {
     display: flex;
     justify-content: center;
-    animation: slideInRight 1s ease-out;
+    /* Ensure hero-image is fixed in place and does not move or animate */
+    position: static;
+    transform: none !important;
+    animation: none !important;
+}
+
+/* On mobile, show image first then title */
+@media (max-width: 1024px) {
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .hero-image {
+        order: 0;
+    }
+    .hero-content {
+        order: 1;
+    }
 }
 
 .image-placeholder {
@@ -260,6 +277,9 @@ p {
     align-items: center;
     justify-content: center;
     box-shadow: 0 20px 40px rgba(30, 64, 175, 0.3);
+    position: static;
+    transform: none !important;
+    animation: none !important;
 }
 
 .hero-icon {
